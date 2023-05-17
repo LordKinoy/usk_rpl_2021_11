@@ -51,7 +51,7 @@ class MainController extends Controller
                 return view('dashboard.index', [
                     'level_user' => $this->levelUser,
                     'jurusanfull' => Jurusan::all(),
-                    'view_kaprog_siswa' => Viewbelumprakerin::all()->where('id_jurusan', '=', Auth::user()->guru->kepalaprogram->jurusan->id_jurusan)->paginate(5)
+                    'view_kaprog_siswa' => Viewbelumprakerin::all()->where('id_jurusan', '=', Auth::user()->guru->kepalaprogram->jurusan->id_jurusan)
                 ]);
             }
         endif;

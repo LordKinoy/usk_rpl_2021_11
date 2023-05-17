@@ -3,6 +3,18 @@
 @section('title', 'Monitoring - SIMAK')
 
 @section('container')
+<div class="mt-5 w-fit">
+    {{-- session flash message --}}
+    @if (Session::has('alert'))
+    <div class="mb-5 w-[400px] rounded-lg bg-red-500 p-3 py-3 text-white shadow-[1px_2px_10px_rgba(0,0,1,0.3)]">
+        <span class="leading-3">
+            <x-heroicon-m-x-circle class="inline-block w-7" />
+            {{ Session::get('alert') }}
+        </span>
+    </div>
+    @endif
+</div>
+
 <div class="flex w-full">
     @if (Auth::user()->level_user == 4)
     <div class="flex-warp mr-2">
@@ -14,26 +26,6 @@
         <a href="/dashboard"
             class="cursor-pointer rounded-lg bg-slate-100 px-4 py-1 text-[#4c77a9] shadow-[1px_2px_10px_rgba(0,0,1,0.2)] transition hover:bg-slate-200 active:bg-slate-300">Kembali</a>
     </div>
-</div>
-<div class="mt-5 w-fit">
-    {{-- session flash message --}}
-    @if (Session::has('alert'))
-    <div class="mb-5 w-[400px] rounded-lg bg-red-500 p-3 py-3 text-white shadow-[1px_2px_10px_rgba(0,0,1,0.3)]">
-        <span class="leading-3">
-            <x-heroicon-m-x-circle class="inline-block w-7" />
-            {{ Session::get('alert') }}
-        </span>
-    </div>
-    @endif
-
-    @if (Session::has('success'))
-    <div class="mb-5 w-[400px] rounded-lg bg-green-500 p-3 py-3 text-white shadow-[1px_2px_10px_rgba(0,0,1,0.3)]">
-        <span class="leading-3">
-            <x-heroicon-m-check-circle class="inline-block w-7" />
-            {{ Session::get('success') }}
-        </span>
-    </div>
-    @endif
 </div>
 
 @switch(Auth::user()->level_user)

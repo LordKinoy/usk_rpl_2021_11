@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pembimbingsekolah;
 use App\Models\Prakerin;
 use App\Models\Pengajuan;
 use App\Models\Viewlistps;
@@ -13,11 +14,16 @@ class KepalaprogramController extends Controller
 {
     protected $pembimbingsekolah;
     protected $prakerin;
+    protected $Ps;
+    protected $Sp;
+
     
     public function __construct()
     {
         $this->pembimbingsekolah = Viewlistps::all();
         $this->prakerin = Viewprakerin::all();
+        $this->Ps = Pembimbingsekolah::all();
+        $this->Sp = Pengajuan::all();
     }
 
     public function indexps()
@@ -34,7 +40,7 @@ class KepalaprogramController extends Controller
         
         return view('pilihps.edit', [
             'edit' => $edit,
-            'pembimbing_sekolah' => $this->Ps
+            'ps' => $this->pembimbingsekolah
         ]);
     }
 

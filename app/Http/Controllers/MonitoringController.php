@@ -114,7 +114,7 @@ class MonitoringController extends Controller
         $hapus = Monitoring::where('id_monitoring',$id_monitoring)->delete();
         
             if($hapus){
-                return redirect('monitoring');
+                return redirect('monitoring')->with('alert','Data Monitoring Berhasil Dihapus');
             }
     }
 

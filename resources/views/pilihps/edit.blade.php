@@ -18,6 +18,8 @@
         <form method="POST" action="/pilihpembimbingsekolah/edit/update">
             @csrf
             <div>
+                <input disabled hdden value="{{$e->id_prakerin}}"
+                    class="disabled:bg-white border-none text-center w-full input bg-white" />
                 <label for="" class="text-black">
                     NIS Siswa
                     <input disabled value="{{$e->nis}}"
@@ -49,7 +51,6 @@
                         {{ $e->pembimbingsekolah->guru->nip_guru }}
                     </option>
                     @else
-                    <option value="">Pilih Pembimbing Sekolah</option>
                     <option value="{{ $ps -> id_ps }}">{{ $ps -> nama_ps }} - {{ $ps -> nip_guru }}</option>
                     @endif
                     @endforeach

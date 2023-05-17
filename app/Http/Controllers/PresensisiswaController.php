@@ -63,6 +63,24 @@ class PresensisiswaController extends Controller
       ]);
     }
 
+    public function indexPs()
+    {
+      if (request('cari')) {
+        $presensiSiswa = DB::table('view_presensi')
+                          ->where('id_ps', Auth::user()->guru->pembimbingsekolah->id_ps)
+                          ->where('tgl_kehadiran', request('cari'))
+                          ->paginate(20);
+      } else {
+        $presensiSiswa = DB::table('view_presensi')
+                          ->where('id_ps', Auth::user()->guru->pembimbingsekolah->id_ps)
+                          ->paginate(20);
+      }
+
+      return view('dashboard.pembimbing_sekolah.presensi.index', [
+        "presensiSiswa" => $presensiSiswa
+      ]);
+    }
+
     //INSERT
     public function store(Request $request)
     {

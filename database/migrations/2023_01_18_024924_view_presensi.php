@@ -29,12 +29,15 @@ return new class extends Migration
                 presensi_siswa.kegiatan,
                 presensi_siswa.status_hadir,
                 presensi_siswa.id_presensi,
-                presensi_siswa.foto_selfie
+                presensi_siswa.foto_selfie,
+                view_prakerin.id_ps,
+                view_prakerin.nama_ps
 
         FROM presensi_siswa
         
         INNER JOIN siswa ON presensi_siswa.nis = siswa.nis
         INNER JOIN pembimbing_perusahaan ON presensi_siswa.nik_pp = pembimbing_perusahaan.nik_pp
+        INNER JOIN view_prakerin ON presensi_siswa.nis = view_prakerin.nis
 
     ");
 

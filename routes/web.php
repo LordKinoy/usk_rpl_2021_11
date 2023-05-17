@@ -113,7 +113,7 @@ Route::group(['middleware' => ['auth','level:Siswa']], function() {
 
 /*----------------------------- Route Modul Presensi Siswa -------------------------------*/
 
-Route::get('/presensi-siswasiswa', [PresensisiswaController::class, 'presensi']);
+Route::get('/presensi-siswasiswa', [PresensisiswaController::class, 'indexPs']);
 
 /*----------------------------------------------------------------------------------------*/
 

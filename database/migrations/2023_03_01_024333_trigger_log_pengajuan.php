@@ -26,7 +26,7 @@ return new class extends Migration
         
         INSERT INTO log_pengajuan
 
-        VALUES ('','UPDATE',OLD.id_pengajuan,OLD.nis,now());
+        VALUES (,'UPDATE',OLD.id_pengajuan,OLD.nis,now());
 
         END;
         
